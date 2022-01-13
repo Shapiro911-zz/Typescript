@@ -1,0 +1,29 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "package.json",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "rd -r public\\scripts 2>null & tsc",
+    "build:dev": "rd -r public\\scripts 2>null & tsc -p tsconfig-dev.json",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shapiro911/Typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shapiro911/Typescript/issues"
+  },
+  "homepage": "https://github.com/Shapiro911/Typescript#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "eslint": "^8.6.0",
+    "moment": "^2.29.1",
+    "typescript": "^4.5.4"
+  }
+}
