@@ -1,6 +1,26 @@
 import { renderBlock } from './lib.js'
 
-export function renderUserBlock(username: string, avatar: string, favoriteItemsAmount: number) {
+export const getUserData = (): any => {
+  const user: unknown = JSON.parse(localStorage.getItem('user') || '{}');
+
+  if (user instanceof Object) {
+    return user;
+  };
+
+  return user.toString();
+}
+
+export const getFavoritesAmount = (): Number => {
+  const favoriteItemsAmount: unknown = parseInt(localStorage.getItem('favoritesAmount') || '0');
+
+  if (favoriteItemsAmount instanceof Number) {
+    return favoriteItemsAmount;
+  };
+
+  return 0;
+}
+
+export function renderUserBlock(username: string, avatar: string, favoriteItemsAmount: Number) {
   const favoritesCaption = favoriteItemsAmount ? favoriteItemsAmount : 'ничего нет'
   const hasFavoriteItems = favoriteItemsAmount ? true : false
 

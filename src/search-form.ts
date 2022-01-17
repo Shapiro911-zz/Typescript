@@ -1,5 +1,16 @@
 import { renderBlock } from './lib.js'
-//import moment from 'moment'
+
+export interface SearchFormData {
+  city: string,
+  checkInDate: Date,
+  checkOutDate: Date,
+  maxPrice: Number
+}
+
+export const search = (searchFormData, callback) => {
+  console.log(searchFormData);
+  callback();
+}
 
 export function renderSearchFormBlock(checkInDate: Date, checkOutDate: Date) {
   let checkInDateStr = checkInDate.toISOString().slice(0, 10);
@@ -36,7 +47,7 @@ export function renderSearchFormBlock(checkInDate: Date, checkOutDate: Date) {
               <input id="max-price" type="text" value="" name="price" class="max-price" />
             </div>
           <div>
-            <div><button>Найти</button></div>
+            <div><button id="search-btn">Найти</button></div>
           </div>
         </div>
       </fieldset>
