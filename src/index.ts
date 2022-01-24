@@ -1,6 +1,7 @@
 import { renderSearchFormBlock, SearchFormData, search } from './search-form.js'
 import { renderSearchStubBlock, renderSearchResultsBlock, renderEmptyOrErrorSearchBlock } from './search-results.js'
 import { renderUserBlock, getUserData, getFavoritesAmount } from './user.js'
+import { getTodosByCount } from './todos.js'
 import { renderToast } from './lib.js'
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -49,4 +50,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         search(searchFormData, searchCallback);
     })
+
+    getTodosByCount(3);
 })
