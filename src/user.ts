@@ -7,7 +7,7 @@ export const getUserData = (): any => {
     return user;
   };
 
-  return user.toString();
+  return null;
 }
 
 export const getFavoritesAmount = (): Number => {

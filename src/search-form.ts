@@ -7,9 +7,13 @@ export interface SearchFormData {
   maxPrice: Number
 }
 
-export const search = (searchFormData, callback) => {
+export interface Place {
+
+}
+
+export const search = (searchFormData: SearchFormData, callback: (results: Place[]) => void) => {
   console.log(searchFormData);
-  callback();
+  callback;
 }
 
 export function renderSearchFormBlock(checkInDate: Date, checkOutDate: Date) {

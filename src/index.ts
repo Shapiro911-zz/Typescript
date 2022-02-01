@@ -1,7 +1,6 @@
-import { renderSearchFormBlock, SearchFormData, search } from './search-form.js'
+import { renderSearchFormBlock, SearchFormData, search, Place } from './search-form.js'
 import { renderSearchStubBlock, renderSearchResultsBlock, renderEmptyOrErrorSearchBlock } from './search-results.js'
 import { renderUserBlock, getUserData, getFavoritesAmount } from './user.js'
-import { getTodosByCount } from './todos.js'
 import { renderToast } from './lib.js'
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -19,21 +18,19 @@ window.addEventListener('DOMContentLoaded', () => {
         { name: 'Понял', handler: () => { console.log('Уведомление закрыто') } }
     )
 
-    const searchBtn = document.getElementById("search-btn");
+    const searchBtn = document.getElementById("search-btn") as HTMLInputElement;
     const cityInput = document.getElementById("city") as HTMLInputElement;
     const checkInInput = new Date((document.getElementById("check-in-date") as HTMLInputElement).value);
     const checkOutInput = new Date((document.getElementById("check-out-date") as HTMLInputElement).value);
     const maxPriceInput = document.getElementById("max-price") as HTMLInputElement;
 
-    interface Place {
 
-    }
-
-    const searchCallback = (error: Error, results: Place[]) => {
+    const searchCallback = (results: Place[]): void => {
         setTimeout(() => {
             if (Math.random() < 0.5) {
                 renderSearchResultsBlock();
             } else {
+                const error = new Error;
                 renderEmptyOrErrorSearchBlock(error);
             }
         }, 2000)
@@ -51,5 +48,4 @@ window.addEventListener('DOMContentLoaded', () => {
         search(searchFormData, searchCallback);
     })
 
-    getTodosByCount(3);
 })
